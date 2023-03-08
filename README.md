@@ -14,7 +14,8 @@ dans le programme à l'aide d'une autre requête d'API.
 ## Prérequis
 
 * Un serveur de développement incluant Apache, PHP, MySQL et phpMyAdmin (par exemple avec XAMPP)
-* Le logiciel *Advanced Rest Client (ARC)* utilisé dans le laboratoire 4
+* Le logiciel *Advanced Rest Client (ARC)* utilisé dans le laboratoire 04
+* Le code du laboratoire 06 complété
 
 ## Consignes
 
