@@ -7,7 +7,7 @@ notamment pas HTTPS. Elles répondent néanmoins à notre
 besoin pour ce laboratoire.
 
 L'utilité des requêtes HTTP dans ce laboratoire est d'envoyer les victoires
-du jeu de Tic Tac Toe à un serveur Web pour que celui-ci puisse maintenir
+du jeu de Tic Tac Toe à une application Web pour que celle-ci puisse maintenir
 un classement des meilleurs joueurs. Ce classement pourra ensuite être affiché
 dans le programme à l'aide d'une autre requête d'API.
 
