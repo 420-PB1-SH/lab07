@@ -1,7 +1,7 @@
 <?php
 
 $hoteBD = 'localhost';
-$portBD = 5432;
+$portBD = 3306;
 $nomBD = 'tictactoe';
 $utilisateurBD = 'root';
 $motDePasseBD = null;
