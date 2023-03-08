@@ -114,7 +114,7 @@ Regardez le contenu du fichier `main.cpp`. Vous constaterez
 que le corps de la fonction `jouer` est vide. Ajoutez-y votre
 code de la fonction `jouer` du laboratoire 06 (ou alternativement, celui de la solution du laboratoire 06).
 
-Testez le programme pour s'assurer que tout fonctionne correctement.
+Testez le programme pour vous assurer que tout fonctionne correctement.
 
 ### Étape 5 - Demander les noms des joueurs
 
