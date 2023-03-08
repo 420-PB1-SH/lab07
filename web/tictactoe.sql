@@ -5,4 +5,3 @@ CREATE TABLE `victoires` (
 
 ALTER TABLE `victoires`
   ADD PRIMARY KEY (`nom`);
-COMMIT;
