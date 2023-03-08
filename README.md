@@ -2,8 +2,9 @@
 
 Dans ce laboratoire, vous aurez à modifier le code de votre laboratoire 06 pour y ajouter des requêtes HTTP
 à l'API d'une application Web qui vous est fournie. Pour ce faire, vous utiliserez les fonctionnalités HTTP du module réseau de SFML. Celles-ci sont
-très limitées comparativement à des bibliothèques dédiées entièrement à HTTP (telles que *libcurl*), mais répondent néanmoins à notre
-besoin.
+très limitées comparativement à des bibliothèques dédiées entièrement à HTTP (telles que *libcurl*), et ne supportent
+notamment pas HTTPS. Elles répondent néanmoins à notre
+besoin pour ce laboratoire.
 
 L'utilité des requêtes HTTP dans ce laboratoire est d'envoyer les victoires
 du jeu de Tic Tac Toe à un serveur Web pour que celui-ci puisse maintenir
@@ -125,6 +126,8 @@ Cela nous permettra aussi de modifier le programme
 afin qu'il affiche le nom de l'autre joueur au lieu de "C'est le tour de l'autre joueur". Pour ce faire, il faudra que le serveur et le client s'échangent les noms à
 l'aide de messages TCP.
 
+**Afin de simplifier la suite du laboratoire, assumez que le nom ne contient jamais d'espace.**
+
 Voici un aperçu de l'exécution du programme après modification:
 
 **Serveur**
@@ -209,9 +212,75 @@ Où voulez-vous placer votre x?
 ligne colonne :
 ```
 
-### Étape 6 - Envoyer une victoire
+### Étape 6 - Envoyer la victoire
 
+C'est maintenant le temps d'ajouter une première requête HTTP
+à votre code!
 
+Faites en sorte que lorsqu'une victoire est déclarée, le
+**serveur** envoie le nom du vainqueur à l'API. Pour
+ce faire, référez-vous au tutoriel de SFML sur l'envoi de
+requêtes HTTP. Les manipulations que vous avez effectuées
+à l'étape 3 vous ont montré comment utiliser l'API.
+
+Utilisez la page Web pour valider que votre requête a fonctionné.
+
+Par ailleurs, pour que votre programme demeure facile
+à lire et à maintenir, placez le code effectuant la requête
+HTTP dans une fonction à part (ex: `envoyerVictoire`).
+
+*ℹ️ Si votre serveur Apache utilise un port autre que 80, vous devez le passer comme deuxième paramètre à la méthode `setHost` de `Http`. Voir [la documentation](https://www.sfml-dev.org/documentation/2.5.1-fr/classsf_1_1Http.php#a55121d543b61c41cf20b885a97b04e65).*
+
+### Étape 7 - Afficher le nombre de victoires
+
+Une fois que le **serveur** a transmis la victoire à l'API,
+il doit effectuer une deuxième requête HTTP, cette fois-ci
+pour récupérer le nombre total de victoires du joueur.
+Encore une fois, placez ce code dans une fonction à part.
+
+Une fois que cette information est récupérée, le serveur
+doit la transmettre au client. Ensuite, **les deux** doivent afficher cette information à l'écran. Voici un exemple d'affichage:
+
+```console
+Alice a gagné!
+Nombre de victoires d'Alice: 31
+```
+
+*ℹ️ Vous vous demandez peut-être pourquoi le serveur doit faire la requête HTTP et envoyer le résultat au client, alors qu'on pourrait simplement effectuer la requête HTTP des deux côtés. Si on faisait cela, on risquerait d'afficher une donnée qui n'est pas à jour sur le client, puisque celui-ci ne sait pas si le serveur a déjà envoyé la nouvelle victoire à l'API.*
+
+### Étape 8 - Permettre de consulter le classement à même le programme
+
+Vous devez maintenant ajouter une option `3. Afficher le classement` au menu du jeu. Celle-ci doit
+récupérer le classement complet à l'aide de l'API, puis
+l'afficher à l'écran. Voici un aperçu du résultat attendu:
+
+```console
+TIC TAC TOE
+===========
+Choisir une option:
+1. Créer une partie
+2. Joindre une partie
+3. Afficher le classement
+Votre choix: 3
+
+Récupération du classement...
+
+Classement:
+Alice : 31 victoires
+Bob : 17 victoires
+Pier-Luc : 16 victoires
+Rémy: 15 victoires
+Geneviève: 14 victoires
+Sheila: 12 victoires
+Régis: 10 victoires
+Simon: 8 victoires
+Jacob: 6 victoires
+Josianne: 4 victoires
+```
+
+### Étape 9 (facultatif) - Tester sur des ordinateurs différents
+
+Une fois que tout est bien testé et fonctionnel, testez maintenant votre solution en plaçant l'application Web, le serveur et le client sur trois ordinateurs distincts!
 
 ## Références utiles
 
