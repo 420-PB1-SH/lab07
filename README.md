@@ -61,7 +61,7 @@ Assurez-vous que ça fonctionne avant de passer à l'étape suivante.
 
 ### Étape 3 - Tester l'API
 
-Lancez l'application *Advanced REST Client (ARC)* que vous avez installée au laboratoire 4.
+Lancez l'application *Advanced REST Client (ARC)* que vous avez installée au laboratoire 04.
 
 Vous voulez faire une requête POST à l'API de l'application Web
 afin d'ajouter une victoire. Sélectionnez donc la méthode POST dans
